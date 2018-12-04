@@ -1,0 +1,9 @@
+
+.vertContainer{
+    margin: 10%;
+    width:2px;
+    height:90%;
+    overflow:hidden;
+    background-color: gray;
+}
+    

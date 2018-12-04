@@ -1,14 +1,47 @@
 .cardBody {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    border-style: outset;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+        "topLeft rightSide"
+        "bottomLeft rightSide";
+
+    margin-top: 10px;
+    border-radius: 10px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.16);
-    margin:0.5em;
     background-color: white;
-    min-height: 140px;
-    min-width: 220px;
+    height: 100px;
+    width: 220px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
-.cardBody > * {
-    border: 1px solid black;
+.cardBody p {
+    font-size: 0.7em;
+}
+
+.tLeftCorner{
+    grid-area: topLeft;
+}
+.tLeftCorner > * {
+    text-align: start;
+    margin:0px;
+    padding:0px 5px;
+}
+
+.bLeftCorner{
+    grid-area: bottomLeft;
+}
+.bLeftCorner > * {
+    text-align: start;
+    margin:0px;
+    padding:0px 5px;
+    grid-row-start: 2;
+}
+
+.rightSide{
+    grid-column-start: 2;
+    grid-column-end: span 3;
+    grid-row-start: 1;
+    grid-row-end: span 3;
 }

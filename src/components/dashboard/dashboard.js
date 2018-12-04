@@ -9,31 +9,39 @@ export class Dashboard extends Component {
     super(props)
 
     this.state = {
-      currentCards:['AAPL', 'GOGL'],
+      //'AAPL', 'GOGL'
+      currentCards:[],
       inputField:null,
       didErr:false,
     }
   }
 
-  pushNewCard = (evt) => {
+  pushNewCard = async (evt) => {
     evt.preventDefault(); 
     //console.log(this.state.currentCards,this.state.inputField)
     
-    let currentCards =  [...this.state.currentCards]
-        currentCards.push(this.state.inputField)
-
-    this.setState({currentCards, didErr:false})
+    await fetch(`https://api.iextrading.com/1.0/stock/${this.state.inputField}/company`)
+    .then(async (res)=> {
+        if(res.ok){ 
+          let currentCards =  [...this.state.currentCards]
+            currentCards.push(await res.json())
+          this.setState({currentCards, didErr:false})
+        } else {
+          this.setState({didErr:true})
+        }
+    })
+    .catch((err)=>{console.log(err); this.setState({didErr:true})}) //
   }
 
   killComponent =(comp, msg)=> {
     let currentCards =  this.state.currentCards.filter((val)=>val !== comp)   
     this.setState({currentCards, didErr:msg})
-    console.log(msg)
+    // console.log(msg)
   }
 
   render() {
    // console.log(this.state.currentCards)
-    let cardsToRender = this.state.currentCards.map( (val,ind) => <StockCard key={ind} marketSymbol={val} onDelete={this.killComponent}/>)
+    let cardsToRender = this.state.currentCards.map( (val,ind) => <StockCard key={ind} stockInitObj={val} onDelete={this.killComponent}/>)
 
    // this.state.didErr
 
@@ -42,7 +50,8 @@ export class Dashboard extends Component {
         <form onSubmit={this.pushNewCard}>
           <h1>Stock Watcher</h1>
           <input className="textField" type="input" placeholder="Enter a stock Symbol..." onChange={(evt)=>this.setState({inputField: evt.target.value})}/>
-          <input className="button" type="submit" value="ADD"/>
+          <input className="button" type="submit" value="ADD"/> 
+          {this.state.didErr ? <span>Invalid Symbol!</span> : null}
         </form>
     
         <hr />
