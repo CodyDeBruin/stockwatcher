@@ -1,0 +1,14 @@
+.cardBody {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-style: outset;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.16);
+    margin:0.5em;
+    background-color: white;
+    min-height: 140px;
+    min-width: 220px;
+}
+
+.cardBody > * {
+    border: 1px solid black;
+}

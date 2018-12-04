@@ -1,0 +1,26 @@
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0 10%
+}
+
+.button {
+    background-color: #9CCC65;
+    color: white;
+    border-style: outset;
+    padding: 5px 11px;
+}
+.button:active {
+    border-style: inset;
+}
+.button:hover {
+    background-color: rgb(189, 233, 139);
+    color: white;
+    padding: 5px 11px;
+}
+
+.textField {
+    padding: 10px 16px;
+    margin:2px;
+}
