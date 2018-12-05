@@ -1,12 +1,12 @@
 .cardBody {
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-columns: 75% 30%;
+    grid-template-rows: 50% 50%;
     grid-template-areas: 
         "topLeft rightSide"
         "bottomLeft rightSide";
 
-    margin-top: 10px;
+    margin: 10px;
     border-radius: 10px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.16);
     background-color: white;
@@ -14,6 +14,7 @@
     width: 220px;
     text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .cardBody p {
@@ -26,7 +27,9 @@
 .tLeftCorner > * {
     text-align: start;
     margin:0px;
-    padding:0px 5px;
+    padding:0px 5px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .bLeftCorner{

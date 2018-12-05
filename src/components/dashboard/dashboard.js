@@ -57,7 +57,7 @@ export class Dashboard extends Component {
         <hr />
 
         <div className="cardContainer">
-         {cardsToRender}
+         {cardsToRender.length > 0 ? cardsToRender : <h3 className="centeredMsg">No stocks yet!</h3>}
         </div>    
       </div>
     );

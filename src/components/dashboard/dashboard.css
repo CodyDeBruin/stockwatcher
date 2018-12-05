@@ -1,27 +1,33 @@
 .cardContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items:center;
     padding: 0 10%   
 }
 
 .button {
-    background-color: #9CCC65;
+    background-color: rgb(134, 197, 61);
     color: white;
-    border-style: outset;
-    padding: 5px 11px;
+    border-style: solid;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 .button:active {
     border-style: inset;
 }
 .button:hover {
-    background-color: rgb(189, 233, 139);
+    background-color: rgb(153, 218, 80);
     color: white;
-    padding: 5px 11px;
 }
 
 .textField {
     padding: 10px 16px;
     margin:2px;
     border-radius: 2px;
+    border-style:none;
+}
+
+.centeredMsg {
+    padding: 20%;
 }
