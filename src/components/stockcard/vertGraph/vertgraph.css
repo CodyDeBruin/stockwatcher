@@ -1,9 +1,14 @@
 
 .vertContainer{
-    margin: 10%;
-    width:2px;
-    height:90%;
-    overflow:hidden;
-    background-color: gray;
+    padding:10%;
+    width:1px;
+    height:98%;
+    border-left: 1px solid gray
 }
     
+.arrow-left {
+    width: 0; 
+    height: 0; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent; 
+}

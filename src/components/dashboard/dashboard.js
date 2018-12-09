@@ -25,6 +25,7 @@ export class Dashboard extends Component {
         if(res.ok){ 
           let currentCards =  [...this.state.currentCards]
             currentCards.push(await res.json())
+            
           this.setState({currentCards, didErr:false})
         } else {
           this.setState({didErr:true})

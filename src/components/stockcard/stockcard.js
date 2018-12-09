@@ -12,6 +12,12 @@ export class StockCard extends Component {
         }
     }
 
+    //
+    //
+    //
+    //
+    //
+
     refreshStockQuote = async () => {
        await fetch(`https://api.iextrading.com/1.0/stock/${this.props.stockInitObj.symbol}/quote`)
         .then(async (res)=>{
@@ -21,6 +27,13 @@ export class StockCard extends Component {
         })
         .catch((err)=>{console.log("Fetch failed: ", err)}) 
     }
+
+
+    //
+    //
+    //
+    //
+    //
 
     componentWillMount(){
         this.refreshStockQuote()
@@ -41,7 +54,12 @@ export class StockCard extends Component {
                         <p>{quote.symbol}</p>
                     </div>
 
-                    <VertGraph className="rightSide"/>
+                    <VertGraph className="rightSide" quoteInfo={quote}/>
+
+                    <div className="farRight">
+                        <p>{`$${quote.high}`}</p>
+                        <p>{`$${quote.low}`}</p>
+                    </div>
 
                     <div className="bLeftCorner">
                         <p>{`${quote.change} (${(quote.changePercent*100).toFixed(2)}%)`}</p>
