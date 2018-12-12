@@ -12,7 +12,6 @@ export class VertGraph extends Component {
 
     getArrowOffset = () =>{
         const props = this.props.quoteInfo
-        console.log((((props.high - props.latestPrice) / (props.high - props.low)) * 100).toFixed(2)    )
         return (((props.high - props.latestPrice) / (props.high - props.low)) * 100).toFixed(2)     
     }
 

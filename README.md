@@ -4,3 +4,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Simple dashboard to view real time stock data. Consumes the iex trading API: https://iextrading.com/developer/docs/
 
+<img src="./screenshot.PNG" alt="My Screenshot"/>
